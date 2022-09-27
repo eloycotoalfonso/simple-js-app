@@ -6,21 +6,21 @@ let pokemonsList = [];
 let pokemon1 = {
     name: 'Butterfree',
     height: 1.1,
-    type: ['bug', 'flying']
+    types: ['bug', 'flying']
 
 }
 
 let pokemon2 = {
     name: 'Geodude',
     height: 0.4,
-    type: ['rock', 'ground']
+    types: ['rock', 'ground']
 
 }
 
 let pokemon3 = {
     name: 'Magneton',
     height: 1,
-    type: ['electric', 'steel']
+    types: ['electric', 'steel']
 
 }
 
