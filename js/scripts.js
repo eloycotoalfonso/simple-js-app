@@ -41,6 +41,10 @@ pokemonsList[2] = pokemon3;
 
 //Loop that iterates ovr the pokemonList items:
 for (let i = 0; i < pokemonsList.length; i++){
-    // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \\n');
-    document.write(`\n ${pokemonsList[i].name} (height: ${pokemonsList[i].height}) `);
+    if(pokemonsList[i].height > 1 ){
+        document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') - Wow! That\'s big!!! <br>');
+    }else{
+        // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \n');
+        document.write(`${pokemonsList[i].name} (height: ${pokemonsList[i].height}) <br>`);
+    }
 }
