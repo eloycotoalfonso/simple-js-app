@@ -37,4 +37,10 @@ pokemonsList[2] = pokemon3;
 */
 
 //Display the arrays of pokemons
-console.log(pokemonsList);
+// console.log(pokemonsList);
+
+//Loop that iterates ovr the pokemonList items:
+for (let i = 0; i < pokemonsList.length; i++){
+    // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \\n');
+    document.write(`\n ${pokemonsList[i].name} (height: ${pokemonsList[i].height}) `);
+}
