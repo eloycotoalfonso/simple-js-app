@@ -18,6 +18,16 @@ let pokemonRepository = (function (){
     }
     
     function getAll(){
+        pokemonsList.forEach(function (pokemon){
+    
+            if(pokemon.height > 1 ){
+                document.write(pokemon.name + ' (height: ' + pokemon.height + ') - Wow! That\'s big!!! <br>');
+            }else{
+                // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \n');
+                document.write(`${pokemon.name} (height: ${pokemon.height}) <br>`);
+            }
+            
+        });
         return pokemonsList;
     }
 
@@ -26,13 +36,14 @@ let pokemonRepository = (function (){
         console.log(filtered);
     }
 
-    
     return{
         getAll: getAll,
         add: add,
         filter: filter
     };
 })();
+
+
 
     //creating the objects for each of the pokemons
     let pokemon1 = {
@@ -61,6 +72,7 @@ let pokemonRepository = (function (){
         types:['a','b']
     }
 
+
     //Including pokemons into the repository
     pokemonRepository.add(pokemon1);
     pokemonRepository.add(pokemon2);
@@ -68,16 +80,5 @@ let pokemonRepository = (function (){
     pokemonRepository.add(pokemon4);
     pokemonRepository.add(pokemon5);
 
-    // forEach function
-
-    pokemonRepository.getAll().forEach(function (pokemon){
-    
-        if(pokemon.height > 1 ){
-            document.write(pokemon.name + ' (height: ' + pokemon.height + ') - Wow! That\'s big!!! <br>');
-        }else{
-            // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \n');
-            document.write(`${pokemon.name} (height: ${pokemon.height}) <br>`);
-        }
-        
-    });
-
+    //Printing all pokemons with hight criteria
+    pokemonRepository.getAll();
