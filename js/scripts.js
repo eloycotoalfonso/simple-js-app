@@ -4,7 +4,11 @@ let pokemonRepository = (function (){
     let pokemonsList = [];
     
     function add(pokemon){
-        pokemonsList.push(pokemon);
+        if(typeof(pokemon) === 'object'){
+            pokemonsList.push(pokemon);
+        }else{
+            alert('The Pokemon is not in the right format');
+        }
     }
     function getAll(){
         return pokemonsList;
@@ -38,6 +42,7 @@ let pokemonRepository = (function (){
         types: ['electric', 'steel']
 
     }
+    let pokemon4 = "Bulbasour";
 
     //Including pokemons into the repository
     pokemonRepository.add(pokemon1);
