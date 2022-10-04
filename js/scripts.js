@@ -4,20 +4,33 @@ let pokemonRepository = (function (){
     let pokemonsList = [];
     
     function add(pokemon){
-        if(typeof(pokemon) === 'object'){
+        let pokemonModel = {
+            name: '',
+            height: -1,
+            types: []
+        };
+        // console.log("This are the objects for pokemon model")
+        if(typeof(pokemon) === 'object' && JSON.stringify(Object.keys(pokemon)) === JSON.stringify(Object.keys(pokemonModel))){
             pokemonsList.push(pokemon);
         }else{
-            alert('The Pokemon is not in the right format');
+            console.log('The Pokemon: ' + pokemon + 'is not in the right format');
         }
     }
+    
     function getAll(){
         return pokemonsList;
     }
+
+    function filter(input){
+        let filtered = pokemonsList.filter(pokemon => pokemon.name === input);
+        console.log(filtered);
+    }
+
     
     return{
         getAll: getAll,
-
-        add: add
+        add: add,
+        filter: filter
     };
 })();
 
@@ -26,30 +39,36 @@ let pokemonRepository = (function (){
         name: 'Butterfree',
         height: 1.1,
         types: ['bug', 'flying']
-
     }
 
     let pokemon2 = {
         name: 'Geodude',
         height: 0.4,
         types: ['rock', 'ground']
-
     }
 
     let pokemon3 = {
         name: 'Magneton',
         height: 1,
         types: ['electric', 'steel']
-
     }
+
+    //Both this pokemon shouldn't go through the add function
     let pokemon4 = "Bulbasour";
+    let pokemon5 = {
+        name: "x",
+        heig: 2.2,
+        types:['a','b']
+    }
 
     //Including pokemons into the repository
     pokemonRepository.add(pokemon1);
     pokemonRepository.add(pokemon2);
     pokemonRepository.add(pokemon3);
+    pokemonRepository.add(pokemon4);
+    pokemonRepository.add(pokemon5);
 
-    // for.each function
+    // forEach function
 
     pokemonRepository.getAll().forEach(function (pokemon){
     
