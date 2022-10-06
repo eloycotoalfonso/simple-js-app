@@ -2,21 +2,22 @@
 let pokemonRepository = (function (){
    
     let pokemonsList = [];
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
     
+    // When it's called, this function adds the pokemon "pokemon" object into the pokemon array
     function add(pokemon){
-        let pokemonModel = {
-            name: '',
-            height: -1,
-            types: []
-        };
+        let validKeyNames = ['name', 'detailsUrl'];
         // console.log("This are the objects for pokemon model")
-        if(typeof(pokemon) === 'object' && JSON.stringify(Object.keys(pokemon)) === JSON.stringify(Object.keys(pokemonModel))){
+        // if(typeof(pokemon) === 'object' && JSON.stringify(Object.keys(pokemon)) === JSON.stringify(Object.keys(pokemonModel))){
+        if(typeof(pokemon) === 'object' && Object.keys(pokemon).every(keyName => validKeyNames.includes(keyName))){
             pokemonsList.push(pokemon);
         }else{
             console.log('The Pokemon: ' + pokemon + 'is not in the right format');
         }
     }
     
+    // When it's called, this function will print the pokemon list in the browser window
+    //  Dependencies functions: addListItem
     function getAll(){
         pokemonsList.forEach(function (pokemon){
            addListItem(pokemon);
@@ -31,11 +32,13 @@ let pokemonRepository = (function (){
         return pokemonsList;
     }
 
+    // This function will filter the pokemon and log it in the console if the pokemon exists in the pokemonList array
     function filter(input){
         let filtered = pokemonsList.filter(pokemon => pokemon.name === input);
         console.log(filtered);
     }
 
+    // When called this function will include in a list the pokemon passed as an argument to the browser.
     function addListItem (pokemon){
         let unorderedList = document.querySelector('.pokemon-list');
         let liItem = document.createElement('li');
@@ -54,10 +57,15 @@ let pokemonRepository = (function (){
             // }
     }
 
+    // This function, when callled, will show the details of the pokemon (event listener click)
+    // Dependencies functions: loadDetails
     function showDetails(pokemon){
-        console.log(pokemon);
+        loadDetails(pokemon).then(function(){
+            console.log(pokemon);
+        });
     }
 
+    // This function listens to a click and then it calls the function that will show the details if the pokemon
     function addClic(button, pokemon){
         button.addEventListener('click', function (event) {
             showDetails(pokemon);
@@ -65,13 +73,53 @@ let pokemonRepository = (function (){
 
     }
 
+    // This function will fetch the data from an external API, when fetched, it will include one by one the pokemons in the array pokemonList
+    // Dependencies functions: add
+    function loadList(){
+        return fetch(apiUrl).then(function(response){
+            return response.json();
+        }).then(function (json){
+            json.results.forEach(function(item){
+                let pokemon = {
+                    name: item.name,
+                    detailsUrl: item.url
+                };
+                add(pokemon);
+            });
+        }).catch(function(e){
+            console.error(e);
+        })
+    }
+
+    function loadDetails(item) {
+        let url = item.detailsUrl;
+        console.log(url);
+        return fetch(url).then(function (response) {
+          return response.json();
+        }).then(function (details) {
+          // Now we add the details to the item
+          console.log(details.sprites.front_default);
+          console.log(details.height);
+          console.log(details.types);
+        //   item.imageUrl = details.sprites.front_default;
+        //   item.height = details.height;
+        //   item.types = details.types;
+        }).catch(function (e) {
+          console.error(e);
+        });
+    }
+
+
+
     return{
         getAll: getAll,
         add: add,
         filter: filter,
         addListItem: addListItem,
         showDetails: showDetails,
-        addClic: addClic
+        addClic: addClic,
+        loadList: loadList,
+        loadDetails: loadDetails
     };
 })();
 
@@ -104,13 +152,21 @@ let pokemonRepository = (function (){
         types:['a','b']
     }
 
-
+    /* Here the pokemons are included one by one
     //Including pokemons into the repository
     pokemonRepository.add(pokemon1);
     pokemonRepository.add(pokemon2);
     pokemonRepository.add(pokemon3);
     pokemonRepository.add(pokemon4);
     pokemonRepository.add(pokemon5);
+    */
+    
+    // Including all the pokemons into the repository with an external API
+    pokemonRepository.loadList().then(function(){
+        pokemonRepository.getAll().forEach(function(pokemon){
+            pokemonRepository.addListItem(pokemon);
+        });
+    });
 
     //Printing all pokemons with hight criteria
     pokemonRepository.getAll();
