@@ -56,6 +56,7 @@ a {
 .pokedex-image{
   text-align: center;
   margin-top: 15px;
+  float: left;
 }
 .pokedex_image__image {
   width: 322.000000pt
@@ -125,10 +126,21 @@ li{
   max-width: 700px;
   text-align: center;
 }
+.modal_details{
+  margin: auto;
+  padding: 10px;
+  width: 100px;
+  text-align: justify;
+  border-radius: 5px;
+  border: black;
+  border-width: 2px;
+  display: inline-flex;
+}
 
 .modal-close {
   float: right;
   -webkit-appearance: none;
+  appearance: none;
   border: 0;
   background: none;
   color: #777;
@@ -144,9 +156,12 @@ li{
 }
 
 .modal-image{
+  display: inline;
   float: left;
-  width: 50px;
-  height: 50px;
+  width: 200px;
+  height: 200px;
+  margin-top: auto;
+  margin-bottom: auto;
 
 }
 
