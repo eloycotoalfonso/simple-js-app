@@ -3,7 +3,8 @@ let pokemonRepository = (function (){
    
     let pokemonsList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-    
+    let modalContainer = document.querySelector("#modal-container");
+
     // When it's called, this function adds the pokemon "pokemon" object into the pokemon array
     function add(pokemon){
         let validKeyNames = ['name', 'detailsUrl'];
@@ -61,6 +62,7 @@ let pokemonRepository = (function (){
     // Dependencies functions: loadDetails
     function showDetails(pokemon){
         loadDetails(pokemon).then(function(){
+            showPokemonModal(pokemon);
             console.log(pokemon);
         });
     }
@@ -109,6 +111,44 @@ let pokemonRepository = (function (){
         });
     }
 
+    function showPokemonModal(pokemon){
+        //Set up the basic structure of the modal
+        modalContainer.classList.add('is-visible');
+        modalContainer.innerHTML = '';
+        let modal = document.createElement('div');
+        modal.classList.add('modal');
+
+        //Define the variables of the elements inside the modal
+        let closebutton = document.createElement('button');
+        let pokemonName = document.createElement('h1');
+        let pokemonDetails = document.createElement('p');
+        let pokemonImage = document.createElement('img');
+
+        //Define the class for the elements (if applies) 
+        closebutton.classList.add('modal-close');
+        pokemonImage.classList.add('modal-image');
+
+        //Define the source for the pokemon image
+        pokemonImage.src = "https://via.placeholder.com/50";
+    
+        //Define the text for the different elements (if applies)
+        closebutton.innerText = "close";
+        pokemonName.innerText = pokemon.name;
+        pokemonDetails.innerText = pokemon.height;
+
+
+        //Append each of the element to it's corresponding parent
+        modal.appendChild(closebutton);
+        modal.appendChild(pokemonName);
+        modal.appendChild(pokemonDetails);
+        modal.appendChild(pokemonImage);
+        modalContainer.appendChild(modal);
+    }
+
+    function hidePokemonModal(){
+        modalContainer.classList.remove('is-visible');
+    }
+
 
 
     return{
@@ -119,7 +159,9 @@ let pokemonRepository = (function (){
         showDetails: showDetails,
         addClic: addClic,
         loadList: loadList,
-        loadDetails: loadDetails
+        loadDetails: loadDetails,
+        showPokemonModal: showPokemonModal,
+        hidePokemonModal: hidePokemonModal
     };
 })();
 
