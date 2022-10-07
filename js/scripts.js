@@ -119,26 +119,28 @@ let pokemonRepository = (function (){
         modal.classList.add('modal');
 
         //Define the variables of the elements inside the modal
-        let closebutton = document.createElement('button');
+        let closeButton = document.createElement('button');
         let pokemonName = document.createElement('h1');
         let pokemonDetails = document.createElement('p');
         let pokemonImage = document.createElement('img');
 
         //Define the class for the elements (if applies) 
-        closebutton.classList.add('modal-close');
+        closeButton.classList.add('modal-close');
         pokemonImage.classList.add('modal-image');
 
         //Define the source for the pokemon image
         pokemonImage.src = "https://via.placeholder.com/50";
     
         //Define the text for the different elements (if applies)
-        closebutton.innerText = "close";
+        closeButton.innerText = "close";
         pokemonName.innerText = pokemon.name;
         pokemonDetails.innerText = pokemon.height;
 
+        //Assigning other properties such as event listeners
+        closeButton.addEventListener('click', hidePokemonModal);
 
         //Append each of the element to it's corresponding parent
-        modal.appendChild(closebutton);
+        modal.appendChild(closeButton);
         modal.appendChild(pokemonName);
         modal.appendChild(pokemonDetails);
         modal.appendChild(pokemonImage);
@@ -149,8 +151,6 @@ let pokemonRepository = (function (){
         modalContainer.classList.remove('is-visible');
     }
 
-
-
     return{
         getAll: getAll,
         add: add,
@@ -159,50 +159,11 @@ let pokemonRepository = (function (){
         showDetails: showDetails,
         addClic: addClic,
         loadList: loadList,
-        loadDetails: loadDetails,
-        showPokemonModal: showPokemonModal,
-        hidePokemonModal: hidePokemonModal
+        loadDetails: loadDetails
     };
 })();
 
 
-
-    //creating the objects for each of the pokemons
-    let pokemon1 = {
-        name: 'Butterfree',
-        height: 1.1,
-        types: ['bug', 'flying']
-    }
-
-    let pokemon2 = {
-        name: 'Geodude',
-        height: 0.4,
-        types: ['rock', 'ground']
-    }
-
-    let pokemon3 = {
-        name: 'Magneton',
-        height: 1,
-        types: ['electric', 'steel']
-    }
-
-    //Both this pokemon shouldn't go through the add function
-    let pokemon4 = "Bulbasour";
-    let pokemon5 = {
-        name: "x",
-        heig: 2.2,
-        types:['a','b']
-    }
-
-    /* Here the pokemons are included one by one
-    //Including pokemons into the repository
-    pokemonRepository.add(pokemon1);
-    pokemonRepository.add(pokemon2);
-    pokemonRepository.add(pokemon3);
-    pokemonRepository.add(pokemon4);
-    pokemonRepository.add(pokemon5);
-    */
-    
     // Including all the pokemons into the repository with an external API
     pokemonRepository.loadList().then(function(){
         pokemonRepository.getAll().forEach(function(pokemon){
