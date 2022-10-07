@@ -11,4 +11,8 @@ The application read information from an external web (link to be added) and dis
 ## Instalation
 This application does not require any instalation procedure.
 
+## Dependencies
+This Application uses and External API:
+https://pokeapi.co/api/v2/pokemon/?limit=150
+
 ## Other Information
