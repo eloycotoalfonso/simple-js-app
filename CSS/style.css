@@ -79,7 +79,8 @@ a {
   border-radius: 3px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.3);
   transition: 0.2s opacity;
-  width: 650px;
+  width: 400px;
+  margin: 5px;
 }
 
 .pokebutton:hover {
