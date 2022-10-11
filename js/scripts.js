@@ -169,11 +169,10 @@ let pokemonRepository = (function (){
         modalBody.append(heightPokemon);
         modalBody.append(weightPokemon);
         modalBody.append(typesPokemon);
-        modalBody.append(abilitiesPokemon);
-
-
-    
+        modalBody.append(abilitiesPokemon);    
     }
+
+
 
     return{
         getAll: getAll,

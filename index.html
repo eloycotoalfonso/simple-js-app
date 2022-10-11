@@ -7,49 +7,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel ="stylesheet" href = "CSS/style.css" type = "text/css"/>
-    <link rel = "shortcut icon" href="./img/favicon.ico" type = "image/x-icon" />
-
-    
+    <link rel = "shortcut icon" href="./img/favicon.ico" type = "image/x-icon" /> 
 </head>
 <body>
-    <header class = "pokedex_header">
-        <img src = "img/header.jpg" class ="page-header__item" alt = "logo image"/>
+    <header class = "page-header">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <img src = "img/header.jpg" class ="navbar-image" alt = "logo image"/>
+      </nav>
+
+        <!-- <img src = "img/header.jpg" class ="page-header__item" alt = "logo image"/> -->
     </header>
-   <!--- <div class = "pokedex-image">
-        <img src = "img/pokedex.svg"  class = "pokedex_image__image" alt = "pokedex image"/>
-    </div>-->
-    <ul class = "list-group"></ul>
-    <!-- Here is how I created the modal
-      
-      <div id = "modal-container">
-        <div class = "modal">
-          <button class = "modal-close"> Close </button>
-         <h1> Modal title </h1>
-         <p> Modal text </p>       
-        </div>
-      </div> 
-    -->
+    <main>
+      <!--- <div class = "pokedex-image">
+          <img src = "img/pokedex.svg"  class = "pokedex_image__image" alt = "pokedex image"/>
+      </div>-->
+      <ul class = "list-group"></ul>
+  
 
-    <!-- Bootstrap Modal -->
+      <!-- Bootstrap Modal -->
 
-    <div class = 'modal fade' id = 'pokemon-modal' tabindex ='-1' role = "dialog" aria-labelledby = "pokemonModalLabel" aria-hidden = "true">
-      <div class = "modal-dialog" role = "document">
-        <div class = "modal-content">
-          <div class = "modal-header">
-            <h5 class = "modal-title" id = "pokemonModalLabel">Pokemon name</h5> 
-            <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close" id = "modal-close-button">
-              <span aria-hidden = "true">&times;</span>
-            </button>
-          </div>
-          <div class = "modal-body">
-            Loading...
-          </div>
-          <div class = "modal-footer">
+      <div class = 'modal fade' id = 'pokemon-modal' tabindex ='-1' role = "dialog" aria-labelledby = "pokemonModalLabel" aria-hidden = "true">
+        <div class = "modal-dialog" role = "document">
+          <div class = "modal-content">
+            <div class = "modal-header">
+              <h5 class = "modal-title" id = "pokemonModalLabel">Pokemon name</h5> 
+              <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close" id = "modal-close-button">
+                <span aria-hidden = "true">&times;</span>
+              </button>
+            </div>
+            <div class = "modal-body">
+              Loading...
+            </div>
+            <div class = "modal-footer">
+            </div>
           </div>
         </div>
       </div>
-    </div>
-
+    </main>
 
 
 

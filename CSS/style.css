@@ -25,6 +25,9 @@ body {
     line-height: 1.6;
     text-align: justify;
 }
+main{
+  margin: 180px 0;
+}
   
 h1 {
     font-size: 30px;
@@ -49,39 +52,24 @@ a {
     color: var(--primary-color);
 }
 
-.pokedex_header {
+
+.navbar-image {
     text-align: center;
     background-color: white;
-}
-.pokedex-image{
-  text-align: center;
-  margin-top: 15px;
-  float: left;
-}
-.pokedex_image__image {
-  width: 322.000000pt
+    margin-bottom: 10px;
+    top:0;
+    position: relative;
+    left: 50%;
+    margin-left: -180px;
+    z-index: 1030;
 }
 
-/* .btn .btn-primary{ */
-  /* text-align: center; */
-  /* border: none; overwrittes browser default and specifies a new border style */
-  /* font-family: inherit; takes the font from the outer container */
-  /* font-size: 24px; */
 
-  /* Styling the color */
-  /* display: inline-block; */
-  /* background-color: #fd0100; */
-  /* color: white; */
-  /* text-decoration: none; */
 
-  /* adds spacing to the bottom */
-  /* padding: 10px; */
-  /* border-radius: 3px; */
-  /* border-bottom: 2px solid rgba(0, 0, 0, 0.3); */
-  /* transition: 0.2s opacity; */
-  /* width: 400px; */
-  /* margin: 5px; */
-/* } */
+.navbar-toggler{
+  text-align: right;
+
+}
 
 .btn{
   width: 380px;
@@ -116,7 +104,7 @@ li{
 }
 
 @media all and (max-width: 722px) {
-  .pokebutton {
+  .btn, .btn-primary {
     max-width: 90%;
     font-size: inherit;
   }
