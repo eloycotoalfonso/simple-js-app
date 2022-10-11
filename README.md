@@ -13,6 +13,11 @@ This application does not require any instalation procedure.
 
 ## Dependencies
 This Application uses and External API:
-https://pokeapi.co/api/v2/pokemon/?limit=150
+- https://pokeapi.co/api/v2/pokemon/?limit=150
+
+This app includes the following libraries:
+- JQuery.js:
+-Bootstrap.js
+
 
 ## Other Information
