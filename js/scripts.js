@@ -22,14 +22,7 @@ let pokemonRepository = (function (){
     //  Dependencies functions: addListItem
     function getAll(){
         pokemonsList.forEach(function (pokemon){
-           addListItem(pokemon);
-
-            // if(pokemon.height > 1 ){
-                // document.write(pokemon.name + ' (height: ' + pokemon.height + ') - Wow! That\'s big!!! <br>');
-            // }else{
-                // document.write(pokemonsList[i].name + ' (height: ' + pokemonsList[i].height + ') \n');
-                // document.write(`${pokemon.name} (height: ${pokemon.height}) <br>`);
-            // }    
+           addListItem(pokemon);    
         });
         return pokemonsList;
     }
@@ -112,31 +105,6 @@ let pokemonRepository = (function (){
             item.types = x;
             item.abilities = y;
 
-
-
-            
-
-
-        // Now we add the details to the item
-        //    let image = modalContainer.querySelector('.modal-image');
-        //    let modalDetails = modalContainer.querySelector('.modal-details');
-        //    let modalDetails = modalContainer.querySelector('.modal');
-        //    let detailsHeight = document.createElement('p');
-        //    let detailsTypes = document.createElement('p');
-           
-        //    image.src = details.sprites.front_default;
-        //    detailsHeight.innerText = 'Height: ' + details.height;
-        //    let x = '';
-        //    details.types.forEach(element =>{x += element.type.name + ', '});
-        //    x = x.slice(0,-2);
-        //    detailsTypes.innerText = 'Types: ' + x + '.'; /*details.types.forEach(detail => detail.name);*/
-        //    console.log(details.types);
-        //   item.imageUrl = details.sprites.front_default;
-        //   item.height = details.height;
-        //   item.types = details.types;
-
-            // modalDetails.appendChild(detailsHeight);
-            // modalDetails.appendChild(detailsTypes);
         }).catch(function (e) {
           console.error(e);
         });
