@@ -87,18 +87,16 @@ a {
   width: 380px;
   transition: 0.2s opacity;
 }
-.btn:hover .btn:focus .btn-primary:hover .btn-primary:focus{
-  opacity: 0,8;
-}
 
 .btn-primary{
   background-color: #fd0100;
   border-color: #fd0100;
 }
 
-.pokebutton:hover {
-  cursor: pointer; /* let's the cursor appears like a hand */
-  opacity: 0.8; /* reduces the opacity of the button 80% */
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active{
+  background-color: #fd0100;
+  border-color: #fd0100;
+  opacity: 0.7;
 }
 
 li{
