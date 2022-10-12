@@ -2,8 +2,8 @@
 let pokemonRepository = (function (){
    
     let pokemonsList = [];
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
-    let modalContainer = document.querySelector("#modal-container");
+    let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+    //let modalContainer = document.querySelector('#modal-container');
 
 
     // When it's called, this function adds the pokemon "pokemon" object into the pokemon array
@@ -41,8 +41,8 @@ let pokemonRepository = (function (){
         liItem.classList.add('group-list-item');
         let button = document.createElement('button');
         button.innerText = pokemon.name;
-        button.setAttribute("data-toggle", 'modal');
-        button.setAttribute("data-target", '#pokemon-modal');
+        button.setAttribute('data-toggle', 'modal');
+        button.setAttribute('data-target', '#pokemon-modal');
         // button.classList.add('pokebutton');
         button.classList.add('btn');
         button.classList.add('btn-primary');
@@ -61,7 +61,7 @@ let pokemonRepository = (function (){
 
     // This function listens to a click and then it calls the function that will show the details if the pokemon
     function addClic(button, pokemon){
-        button.addEventListener('click', function (event) {
+        button.addEventListener('click', function () {
             showDetails(pokemon);
           });
     }
@@ -111,7 +111,6 @@ let pokemonRepository = (function (){
     }
 
     function showPokemonModal(pokemon){
-
         //Define modal body and title
         let modalBody = $('.modal-body');
         let modalTitle  = $('.modal-title');
@@ -124,11 +123,13 @@ let pokemonRepository = (function (){
         //Create the different elements inside the modal
         let pokemonName = $('<h1>' + pokemon.name + '</h1>');
         let imagePokemon = $('<img class = "modal-image" style = "widht:50%">');
-        let heightPokemon = $("<p>" + "Height: " + pokemon.height + "</p>");
-        let weightPokemon = $("<p>" + "Weight: " + pokemon.weight + "</p>");
-        let typesPokemon = $("<p>" + "Types: " + pokemon.types + "</p>");
-        let abilitiesPokemon = $("<p>" + "Abilities: " + pokemon.abilities + "</p>");
         
+
+        let heightPokemon = $('<p>' + 'Height: ' + pokemon.height + '</p>');
+        let weightPokemon = $('<p>' + 'Weight: ' + pokemon.weight + '</p>');
+        let typesPokemon = $('<p>' + 'Types: ' + pokemon.types + '</p>');
+        let abilitiesPokemon = $('<p>' + 'Abilities: ' + pokemon.abilities + '</p>');
+
 
         //append the different elements into the modal
         imagePokemon.attr('src', pokemon.imageUrl);
