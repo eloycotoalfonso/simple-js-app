@@ -19,5 +19,7 @@ This app includes the following libraries:
 - JQuery.js:
 -Bootstrap.js
 
+## Screenshots
+![pokedex](https://user-images.githubusercontent.com/113536908/200543460-41e9aa5c-747c-4f60-866e-c0c233ec348b.png)
 
 ## Other Information
