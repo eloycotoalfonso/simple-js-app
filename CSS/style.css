@@ -24,7 +24,9 @@ main{
 
 .navbar-image {
     text-align: center;
-    background-color: white;
+    /* background-color: purple; */
+    /* color: purple; */
+    background-color: #F8F9FA;
     margin-bottom: 10px;
     top:0;
     position: relative;
@@ -32,13 +34,22 @@ main{
     margin-left: -180px;
     z-index: 1030;
 }
+.list-group{
+  display: grid;
+  grid-template-columns: 300px 300px 300px;
+  grid-gap: 20px;
+  justify-content: center;
+}
+.group-list-item{
+  background-color: #fd0100;
+}
 
 .navbar-toggler{
   text-align: right;
 }
 
 .btn{
-  width: 380px;
+  width: 300px;
   transition: 0.2s opacity;
 }
 
@@ -68,6 +79,31 @@ li{
   margin-right: 10px;
 
 }
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  justify-content: center;
+  margin-top: 10px;
+}
+ 
+
+
+
+
+@media all and (max-width: 900px){
+  .list-group{
+    grid-template-columns: 300px 300px;
+  }
+}
+
+@media all and (max-width: 600px){
+  .list-group{
+    grid-template-columns: 300px;
+  }
+}
+
 
 @media all and (max-width: 722px) {
   .btn, .btn-primary {
