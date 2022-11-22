@@ -56,7 +56,7 @@ const pokemonRepository = (function () {
   function next () {
     const x = document.querySelector('#next-button');
     x.addEventListener("click", function () {
-        
+        console.log('xxx');
         return fetch(apiUrl)
         .then(function (response) {
         // apiUrl = response.json().next;
@@ -128,5 +128,7 @@ pokemonRepository.loadList().then(function () {
 
 //Printing all pokemons with hight criteria
 pokemonRepository.getAll();
+pokemonRepository.next();
+
 
 
