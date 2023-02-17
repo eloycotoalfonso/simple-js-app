@@ -23,7 +23,12 @@ This Application uses and External API:
 This app includes the following libraries:
 
 - JQuery.js:
-  -Bootstrap.js
+- Bootstrap.js
+
+This application uses the following languages:
+- HTML
+- CSS
+- JS
 
 ## Screenshots
 
